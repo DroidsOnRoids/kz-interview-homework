@@ -1,0 +1,33 @@
+<div>
+  <div class="row mb-3">
+    <div class="col-sm">
+      <input type="text" class="form-control" id="input" placeholder="type the text here" [(ngModel)]="text">
+    </div>
+    <div class="col-sm">
+      <button type="button" class="btn btn-primary" (click)="onCheckClick()">Check</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div *ngIf="errorBoxShown">
+        <div class="alert alert-danger" role="alert">
+          ERROR: probably the text is invalid
+          <ul>
+            <li>it can not be blank</li>
+            <li>it must contain only alpha-numeric characters</li>
+          </ul>
+        </div>
+      </div>
+      <div *ngIf="infoPalindromeTextShown">
+        <div class="alert alert-success" role="alert">
+          <b>{{ checkedText }}</b> is palindrome!
+        </div>
+      </div>
+      <div *ngIf="infoNotPalindromeTextShown">
+        <div class="alert alert-warning" role="alert">
+          <b>{{ checkedText }}</b> is not a palindrome
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
