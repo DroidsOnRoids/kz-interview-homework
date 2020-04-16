@@ -1,0 +1,14 @@
+version: "3"
+services:
+  server:
+    image: node:13.13.0-stretch
+    working_dir: /server
+    entrypoint: /server/docker-entrypoint.sh
+    command: start
+    volumes:
+      - .:/server
+      - node-modules:/server/node_modules
+    ports:
+      - "3000:3000"
+volumes:
+  node-modules:
