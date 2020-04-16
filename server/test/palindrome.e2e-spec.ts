@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('Palindrome (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
@@ -15,10 +15,17 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/palindrome/abba (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/palindrome/abba')
       .expect(200)
-      .expect('Hello World!');
+      .expect({ result: true, input: 'abba' });
+  });
+
+  it('/palindrome/abcd (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/palindrome/abcd')
+      .expect(400)
+      .expect({ result: false, input: 'abcd' });
   });
 });

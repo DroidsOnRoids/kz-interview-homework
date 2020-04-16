@@ -1,20 +1,15 @@
 # Sever
-## Set up
-Run:
+Run to setup server (install dependencies, etc...):
 ```
 docker-compose run server setup
 ```
 
-## Start server
-Run:
+To start server:
 ```
 docker-compose up
 ```
 
-## Run tests
-Run
+To run all tests and linter:
 ```
-docker-compose run server run-unit-tests
-docker-compose run server run-e2e-tests
-docker-compose run server run-e2e-coverage
+docker-compose run server run-all-tests-and-lint
 ```

@@ -20,6 +20,14 @@ case $1 in
   "run-e2e-coverage")
     yarn run test:cov
   ;;
+  "lint")
+    yarn run lint
+  ;;
+  "run-all-tests-and-lint")
+    yarn run test
+    yarn run test:e2e
+    yarn run lint
+  ;;
   *)
     exec "$@"
   ;;
