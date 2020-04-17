@@ -1,0 +1,25 @@
+version: "3"
+services:
+  server:
+    image: node:13.13.0-stretch
+    working_dir: /server
+    entrypoint: /server/docker-entrypoint.sh
+    command: start-dev
+    volumes:
+      - ./server:/server
+      - server-node-modules:/server/node_modules
+    ports:
+      - "3000:3000"
+  frontend:
+    image: node:12.12.0-stretch
+    working_dir: /app
+    entrypoint: /app/docker-entrypoint.sh
+    command: server
+    volumes:
+      - ./frontend:/app
+      - frontend-node-modules:/server/node_modules
+    ports:
+      - "4200:4200"
+volumes:
+  server-node-modules:
+  frontend-node-modules:

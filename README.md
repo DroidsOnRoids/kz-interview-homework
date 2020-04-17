@@ -1,3 +1,12 @@
+# How to run it
+Run those 3 commands one by one:
+```
+docker-compose run server setup
+docker-compose run frontend setup
+docker-compose up
+```
+Than you can access the page on [localhost:3000](http://localhost:3000).
+
 # Tasks:
 1. Bootstrap your favorite node.js FW and create one single API controller with this route: GET /palindrome/:value
 Write a small function (80 characters at the maximum) for palindrome detection. 
