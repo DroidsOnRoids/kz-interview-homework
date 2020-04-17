@@ -5,7 +5,7 @@ docker-compose run server setup
 docker-compose run frontend setup
 docker-compose up
 ```
-Than you can access the page on [localhost:3000](http://localhost:3000).
+Than you can access the page on [localhost:4200](http://localhost:4200).
 
 # Tasks:
 1. Bootstrap your favorite node.js FW and create one single API controller with this route: GET /palindrome/:value
