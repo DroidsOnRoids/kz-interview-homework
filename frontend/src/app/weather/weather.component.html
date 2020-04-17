@@ -1,0 +1,29 @@
+<div>
+  <div class="row mb-3">
+    <div class="col-sm">
+      <h2>Weather</h2>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm">
+      <input type="text" class="form-control" id="input" placeholder="city" [(ngModel)]="city">
+    </div>
+    <div class="col-sm">
+      <button type="button" class="btn btn-primary" (click)="onCheckClick()">Check</button>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm">
+      <div *ngIf="errorShown">
+        <div class="alert alert-danger" role="alert">
+          Something went wrong!
+        </div>
+      </div>
+      <div *ngIf="tempInfoShown">
+        <div class="alert alert-info" role="alert">
+          The temperature is: {{ temperature }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
