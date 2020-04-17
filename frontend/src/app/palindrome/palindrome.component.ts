@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { PalindromeService } from './palindrome.service';
 
 @Component({
-  selector: 'palindrome',
+  selector: 'app-palindrome',
   templateUrl: './palindrome.component.html',
   styleUrls: ['./palindrome.component.scss']
 })
 export class PalindromeComponent {
-  public text = ''
-  public checkedText = ''
-  private hasBeenChecked = false
-  private isPalindrome = false
-  private error = false
+  public text = '';
+  public checkedText = '';
+  private hasBeenChecked = false;
+  private isPalindrome = false;
+  private error = false;
 
   constructor(private service: PalindromeService) { }
 
@@ -23,7 +23,7 @@ export class PalindromeComponent {
         this.error = false;
       },
       error: () => {
-        this.error = true
+        this.error = true;
       },
       complete: () => {
         this.hasBeenChecked = true;

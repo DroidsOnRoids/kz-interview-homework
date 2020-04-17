@@ -2,15 +2,15 @@ import { Component } from '@angular/core';
 import { WeatherService } from './weather.service';
 
 @Component({
-  selector: 'weather',
+  selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent {
-  public city = ''
-  public temperature = 0.0
-  public error = false
-  public hasBeenChecked = false
+  public city = '';
+  public temperature = 0.0;
+  public error = false;
+  public hasBeenChecked = false;
 
   constructor(private service: WeatherService) { }
 
@@ -19,15 +19,12 @@ export class WeatherComponent {
       next: (temperature) => {
         this.temperature = temperature;
         this.error = false;
-        console.log(this.tempInfoShown)
       },
       error: () => {
-        console.log('eerror')
         this.error = true;
       },
       complete: () => {
         this.hasBeenChecked = true;
-        console.log(this.tempInfoShown)
       },
     });
   }

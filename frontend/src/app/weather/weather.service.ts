@@ -5,17 +5,19 @@ import { Observable } from 'rxjs';
 const SECRET_API_KEY = '439d4b804bc8187953eb36d2a8c26a02';
 const URL = 'https://openweathermap.org/data/2.5/weather';
 
-type temperature = number
+type temperature = number;
 
 const extractTemp = (data: any): number => {
   try {
-    const v = parseFloat(data['main']['temp'])
-    if (Number.isNaN(v)) return 0
-    return v
+    const v = parseFloat(data.main.temp);
+    if (Number.isNaN(v)) {
+      return 0;
+    }
+    return v;
   } catch {
-    return 0
+    return 0;
   }
-}
+};
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +38,7 @@ export class WeatherService {
         })
         .subscribe({
           next(data: any) {
-            const temp = extractTemp(data)
+            const temp = extractTemp(data);
             observer.next(temp);
             observer.complete();
           },
@@ -45,6 +47,6 @@ export class WeatherService {
             observer.complete();
           },
         });
-    })
+    });
   }
 }

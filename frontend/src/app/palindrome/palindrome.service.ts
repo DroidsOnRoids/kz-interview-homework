@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 
 const isTextValid = (text: string): boolean => {
   return text.match(/^[A-Za-z0-9]+$/g) !== null;
-}
+};
 
 type CheckPalindromeResult = {
   isPalindrome: boolean,
   checkedText: string,
-}
+};
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ export class PalindromeService {
       if (!isTextValid(text)) {
         observer.error();
         observer.complete();
-        return
+        return;
       }
 
       this.http.get<{ result: boolean }>(`http://localhost:3000/palindrome/${text}`)
@@ -34,10 +34,10 @@ export class PalindromeService {
             observer.complete();
           },
           error() {
-            observer.next({ isPalindrome: false, checkedText: text })
+            observer.next({ isPalindrome: false, checkedText: text });
             observer.complete();
           },
         });
-    })
+    });
   }
 }
